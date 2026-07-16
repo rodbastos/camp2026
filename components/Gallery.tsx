@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Image from "next/image";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 
 interface GalleryImage {
@@ -104,12 +105,15 @@ export default function Gallery() {
 
   return (
     <div className="space-y-6">
-      <div className="relative overflow-hidden rounded-2xl bg-forest/10 shadow-xl">
-        <img
+      <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-forest/10 shadow-xl">
+        <Image
           key={activeImage.src}
           src={activeImage.src}
           alt={activeImage.alt}
-          className="aspect-[16/10] w-full object-cover"
+          fill
+          className="object-cover"
+          sizes="100vw"
+          priority
         />
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest/90 via-forest/60 to-transparent p-5 pt-14 text-cream">
           <h3 className="font-serif text-xl font-bold">{activeImage.edition}</h3>

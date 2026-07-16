@@ -14,6 +14,7 @@ import {
   MessageCircle,
   Sparkles,
 } from "lucide-react";
+import Image from "next/image";
 import Faq from "@/components/Faq";
 import Gallery from "@/components/Gallery";
 
@@ -101,11 +102,14 @@ export default function Page() {
           </div>
 
           <div className="relative">
-            <div className="blob-mask aspect-[4/5] max-h-[560px] w-full shadow-2xl">
-              <img
+            <div className="blob-mask relative aspect-[4/5] max-h-[560px] w-full shadow-2xl">
+              <Image
                 src="/hero.jpg"
                 alt="Camp 2026 na natureza"
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </div>
             <Sprout className="absolute -bottom-6 -left-6 h-20 w-20 text-forest/30 rotate-12" />
@@ -372,16 +376,24 @@ export default function Page() {
             </a>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            <img
-              src="/vila1.jpg"
-              alt="Fachada e detalhes arquitetônicos da Vila dos Portões"
-              className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
-            />
-            <img
-              src="/vila2.png"
-              alt="Paisagem e estrutura da Vila dos Portões"
-              className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg sm:mt-8"
-            />
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-lg">
+              <Image
+                src="/vila1.jpg"
+                alt="Fachada e detalhes arquitetônicos da Vila dos Portões"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+            </div>
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl shadow-lg sm:mt-8">
+              <Image
+                src="/vila2.png"
+                alt="Paisagem e estrutura da Vila dos Portões"
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+            </div>
           </div>
           </div>
         </div>
