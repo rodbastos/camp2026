@@ -7,7 +7,7 @@ const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "Quem serão os palestrantes do evento?",
     answer:
-      "Todos os inscritos poderão apresentar, facilitar ou anfitriar sessões durante o evento. Essas sessões poderão ter duração e formato variados, o limite é a sua imaginação. Se você quiser tirar dúvidas ou pedir ajuda para a montagem de uma sessão, envie uma mensagem em nosso Discord.",
+      "Todos os inscritos poderão apresentar, facilitar ou anfitriar sessões durante o evento. Essas sessões poderão ter duração e formato variados, o limite é a sua imaginação. Se você quiser tirar dúvidas ou pedir ajuda para a montagem de uma sessão é só nos enviar uma mensagem.",
   },
   {
     question: "Quais as melhores opções de transporte até Vila dos Portões?",
@@ -17,12 +17,12 @@ const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "Como será a alimentação?",
     answer:
-      "Café da manhã, almoço e jantar estão inclusos no valor da inscrição. Informe qualquer restrição alimentar no formulário de inscrição.",
+      "Café da manhã, almoço e jantar estão inclusos no valor da inscrição. Teremos uma equipe de apoio na cozinha, mas seguindo o espírito da autogestão, voluntários participantes do CAMP assumirão funções para auxiliar neste trabalho. Informe qualquer restrição alimentar no formulário de inscrição.",
   },
   {
     question: "Como será a hospedagem?",
     answer:
-      "A hospedagem será em quartos compartilhados, com possibilidade de quarto feminino. Também há a opção de camping, com valor de inscrição reduzido.",
+      "A hospedagem será em quartos compartilhados, com possibilidade de quarto feminino. Também há a opção de camping, com valor de inscrição reduzido. Haverá uma equipe de apoio, mas será bastante reduzida. Estaremos responsáveis pela organização dos espaços que utilizamos, assim como pela limpeza dos quartos (retirada do lixo, colocação de toalhas para secagem, etc).",
   },
   {
     question: "Quais serão os horários de check-in e checkout?",
@@ -33,24 +33,24 @@ const FAQ_ITEMS: { question: string; answer: string }[] = [
     question:
       "Quais as principais diferenças desse evento para uma conferência regular?",
     answer:
-      "Diferente de conferências tradicionais, com palestras marcadas e palestrantes definidos com antecedência, aqui a programação é construída pelas próprias pessoas presentes, ao longo da imersão, usando a metodologia Open Space. Todos são bem-vindos para propor sessões ou simplesmente participar. Tudo é convite, você não é obrigado a nada.",
+      "Existem duas grandes diferenças em relação ao formato. Primeiro, teremos algo que em alguns lugares é chamado de desconferência. Ou seja, um espaço aberto de troca, no qual todos podem propor sessões que abordam autogestão ou temas correlatos (pensamento sistêmico, facilitação, etc). A segunda diferença é que todo restante do evento, como preparar alimentos, limpar os espaços, conduzir atividades recreativas, etc, acontecerá com o envolvimento ativo de todos os presentes. Para organizar tudo isso, faremos uso de uma tecnologia social chamada O2, com uma estrutura de papéis e círculos.",
   },
   {
     question:
       "Além de conversas sobre o tema autogestão, haverá atividades recreativas?",
     answer:
-      "Sim! Qualquer pessoa pode propor atividades, sejam rodas de conversa, dinâmicas ou atividades recreativas. Além disso, a Vila dos Portões oferece muito contato com a natureza.",
+      "Sim, e todos estão convidados a propor e conduzir atividades lúdicas, recreativas e que não têm uma conexão direta com o tema do evento. Você pode trazer instrumentos musicais, jogos de tabuleiro e o que achar interessante para aproveitar ao máximo os dias no CAMP.",
   },
   {
     question:
       "Posso levar acompanhantes que não vão participar das discussões sobre autogestão?",
     answer:
-      "Entre em contato com a organização pelo nosso Discord para conversarmos sobre o seu caso.",
+      "Sim. Você pode levar acompanhantes, porém todos precisam assumir papéis em círculos que atuam na logística do evento e devem igualmente pagar a taxa de inscrição. Se esse for o seu caso, coloque quem serão seus acompanhantes na ficha de inscrição, no campo Observações, e não esqueça de gerar uma nova inscrição para cada acompanhante e efetuar o pagamento de cada participante via pix. Se preferir efetuar um único pagamento com o valor da sua inscrição mais o valor da inscrição do acompanhante, então entre em contato com a gente.",
   },
   {
     question: "Com quem eu posso tirar outras dúvidas sobre o Camp?",
     answer:
-      "Envie uma mensagem em nosso Discord — a comunidade terá prazer em ajudar.",
+      "Manda uma mensagem no Whatsapp para ?? no ",
   },
 ];
 

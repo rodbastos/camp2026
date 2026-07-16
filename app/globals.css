@@ -27,4 +27,13 @@
     border-radius: 48% 52% 45% 55% / 60% 58% 42% 40%;
     overflow: hidden;
   }
+
+  .texture-paper-light {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgba(30, 58, 43, 0.05) 1px,
+      transparent 0
+    );
+    background-size: 20px 20px;
+  }
 }

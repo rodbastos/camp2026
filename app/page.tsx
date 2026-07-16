@@ -101,14 +101,12 @@ export default function Page() {
           </div>
 
           <div className="relative">
-            <div className="blob-mask aspect-[4/5] max-h-[560px] w-full bg-gradient-to-br from-forest-light via-forest to-forest shadow-2xl">
-              {/* Substitua por uma foto real em public/hero.jpg e use <img src="/hero.jpg" .../> */}
-              <div className="flex h-full w-full flex-col items-center justify-center gap-4 p-10 text-center text-cream/90">
-                <Trees className="h-16 w-16" />
-                <p className="font-serif text-2xl">
-                  4 dias de imersão na natureza, em roda, em comunidade.
-                </p>
-              </div>
+            <div className="blob-mask aspect-[4/5] max-h-[560px] w-full shadow-2xl">
+              <img
+                src="/hero.jpg"
+                alt="Camp 2026 na natureza"
+                className="h-full w-full object-cover"
+              />
             </div>
             <Sprout className="absolute -bottom-6 -left-6 h-20 w-20 text-forest/30 rotate-12" />
             <Leaf className="absolute -top-4 -right-4 h-16 w-16 text-forest/25 -rotate-45" />
@@ -257,11 +255,6 @@ export default function Page() {
                 </li>
               ))}
             </ul>
-            <p className="mt-8 rounded-xl border border-forest/15 bg-cream p-5 leading-relaxed">
-              Não é necessário vir de nenhuma organização específica, nem ter um
-              cargo de liderança, nem já saber &ldquo;a teoria&rdquo;. O convite
-              vale para qualquer pessoa curiosa.
-            </p>
           </div>
           <div>
             <SectionTitle>Para quê é o Camp?</SectionTitle>
@@ -353,7 +346,7 @@ export default function Page() {
       </section>
 
       {/* ===== FAQ ===== */}
-      <section id="faq" className="bg-cream-dark/60">
+      <section id="faq" className="bg-cream-dark/60 texture-paper-light">
         <div className="mx-auto max-w-3xl px-6 py-16 md:py-24">
           <SectionTitle>Perguntas frequentes</SectionTitle>
           <div className="mt-10">
