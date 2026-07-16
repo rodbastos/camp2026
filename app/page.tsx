@@ -15,8 +15,25 @@ import {
   Sparkles,
 } from "lucide-react";
 import Faq from "@/components/Faq";
+import Gallery from "@/components/Gallery";
 
 const INSCRICAO_URL = "https://forms.gle/Gq7Hmm1qiVkSoU2p6";
+
+// Substitua pelos caminhos das fotos reais das edições passadas (ex: "/edicoes/foto1.jpg")
+const PAST_EDITIONS_IMAGES = [
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+1", alt: "Foto da edição passada 1" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+2", alt: "Foto da edição passada 2" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+3", alt: "Foto da edição passada 3" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+4", alt: "Foto da edição passada 4" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+5", alt: "Foto da edição passada 5" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+6", alt: "Foto da edição passada 6" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+7", alt: "Foto da edição passada 7" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+8", alt: "Foto da edição passada 8" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+9", alt: "Foto da edição passada 9" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+10", alt: "Foto da edição passada 10" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+11", alt: "Foto da edição passada 11" },
+  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+12", alt: "Foto da edição passada 12" },
+];
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -41,6 +58,9 @@ export default function Page() {
             </a>
             <a href="#local" className="hover:text-terracotta transition-colors">
               Local
+            </a>
+            <a href="#edicoes-passadas" className="hover:text-terracotta transition-colors">
+              Edições
             </a>
             <a href="#investimento" className="hover:text-terracotta transition-colors">
               Investimento
@@ -115,7 +135,7 @@ export default function Page() {
       </section>
 
       {/* ===== Informações práticas ===== */}
-      <section id="local" className="bg-forest text-cream">
+      <section id="informacoes" className="bg-forest text-cream">
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
           <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
             Informações práticas
@@ -341,6 +361,52 @@ export default function Page() {
               &ldquo;fazer do jeito certo&rdquo;. Eles convidam a confiar no
               processo e nas pessoas presentes, mesmo que tudo seja novidade.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Sobre a Vila dos Portões ===== */}
+      <section id="local" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+        <SectionTitle>Sobre a Vila dos Portões</SectionTitle>
+        <div className="mt-10 grid gap-10 md:grid-cols-2 items-center">
+          <div className="space-y-5 text-lg leading-relaxed">
+            <p>
+              A Vila dos Portões é um espaço único, que mistura natureza,
+              história, cultura e arquitetura. Foi criado em 1971 por Leyla
+              Mattoso, uma apaixonada por peças de demolição. A construção
+              começou com material trazido de uma casa do século XVIII que
+              estava abandonada em Cotia. Nas palavras da idealizadora,
+              &ldquo;já nasceu com 200 anos de idade&rdquo;.
+            </p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2">
+            {/* Substitua pelas duas fotos reais da Vila dos Portões */}
+            <img
+              src="https://placehold.co/600x800/D8CBB0/1E3A2B?text=Foto+da+Vila+1"
+              alt="Detalhe arquitetônico da Vila dos Portões"
+              className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
+            />
+            <img
+              src="https://placehold.co/600x800/D8CBB0/1E3A2B?text=Foto+da+Vila+2"
+              alt="Paisagem da Vila dos Portões"
+              className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg sm:mt-8"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Edições passadas ===== */}
+      <section
+        id="edicoes-passadas"
+        className="bg-cream-dark/60 texture-paper-light"
+      >
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <SectionTitle>Edições passadas</SectionTitle>
+          <p className="mt-4 max-w-2xl text-lg leading-relaxed text-forest/85">
+            Veja como foram os encontros anteriores na Vila dos Portões.
+          </p>
+          <div className="mt-10">
+            <Gallery images={PAST_EDITIONS_IMAGES} />
           </div>
         </div>
       </section>
