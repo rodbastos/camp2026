@@ -19,22 +19,6 @@ import Gallery from "@/components/Gallery";
 
 const INSCRICAO_URL = "https://forms.gle/Gq7Hmm1qiVkSoU2p6";
 
-// Substitua pelos caminhos das fotos reais das edições passadas (ex: "/edicoes/foto1.jpg")
-const PAST_EDITIONS_IMAGES = [
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+1", alt: "Foto da edição passada 1" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+2", alt: "Foto da edição passada 2" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+3", alt: "Foto da edição passada 3" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+4", alt: "Foto da edição passada 4" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+5", alt: "Foto da edição passada 5" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+6", alt: "Foto da edição passada 6" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+7", alt: "Foto da edição passada 7" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+8", alt: "Foto da edição passada 8" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+9", alt: "Foto da edição passada 9" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+10", alt: "Foto da edição passada 10" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+11", alt: "Foto da edição passada 11" },
-  { src: "https://placehold.co/1200x750/D8CBB0/1E3A2B?text=Edição+12", alt: "Foto da edição passada 12" },
-];
-
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
     <h2 className="font-serif text-4xl md:text-5xl font-bold text-forest tracking-tight">
@@ -62,7 +46,7 @@ export default function Page() {
             <a href="#edicoes-passadas" className="hover:text-terracotta transition-colors">
               Edições
             </a>
-            <a href="#investimento" className="hover:text-terracotta transition-colors">
+            <a href="#informacoes" className="hover:text-terracotta transition-colors">
               Investimento
             </a>
             <a href="#faq" className="hover:text-terracotta transition-colors">
@@ -113,10 +97,6 @@ export default function Page() {
               >
                 Quero participar
               </a>
-              <span className="inline-flex items-center gap-2 rounded-full border border-forest/25 px-4 py-1.5 text-sm">
-                <Leaf className="h-4 w-4 text-forest-light" />
-                Hospedagem e alimentação inclusas
-              </span>
             </div>
           </div>
 
@@ -176,7 +156,7 @@ export default function Page() {
               <div>
                 <h3 className="font-semibold">Hospedagem</h3>
                 <p className="mt-1 text-cream/80 text-sm leading-relaxed">
-                  Quartos compartilhados (com possibilidade de quarto feminino)
+                  Quartos compartilhados (com possibilidade de quarto feminino) ou camping
                 </p>
               </div>
             </div>
@@ -190,7 +170,7 @@ export default function Page() {
                 </p>
               </div>
             </div>
-            <div className="flex gap-4" id="investimento">
+            <div className="flex gap-4">
               <Banknote className="h-6 w-6 shrink-0 text-sand" />
               <div>
                 <h3 className="font-semibold">Investimento</h3>
@@ -366,10 +346,13 @@ export default function Page() {
       </section>
 
       {/* ===== Sobre a Vila dos Portões ===== */}
-      <section id="local" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
-        <SectionTitle>Sobre a Vila dos Portões</SectionTitle>
-        <div className="mt-10 grid gap-10 md:grid-cols-2 items-center">
-          <div className="space-y-5 text-lg leading-relaxed">
+      <section id="local" className="bg-forest text-cream">
+        <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold tracking-tight">
+            Sobre a Vila dos Portões
+          </h2>
+          <div className="mt-10 grid gap-10 md:grid-cols-2 items-center">
+          <div className="space-y-5 text-lg leading-relaxed text-cream/90">
             <p>
               A Vila dos Portões é um espaço único, que mistura natureza,
               história, cultura e arquitetura. Foi criado em 1971 por Leyla
@@ -378,19 +361,28 @@ export default function Page() {
               estava abandonada em Cotia. Nas palavras da idealizadora,
               &ldquo;já nasceu com 200 anos de idade&rdquo;.
             </p>
+            <a
+              href="https://www.viladosportoes.com.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-terracotta px-6 py-3 font-semibold text-cream hover:bg-terracotta-dark transition-colors"
+            >
+              <Link2 className="h-4 w-4" />
+              Conheça a Vila dos Portões
+            </a>
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
-            {/* Substitua pelas duas fotos reais da Vila dos Portões */}
             <img
-              src="https://placehold.co/600x800/D8CBB0/1E3A2B?text=Foto+da+Vila+1"
-              alt="Detalhe arquitetônico da Vila dos Portões"
+              src="/vila1.jpg"
+              alt="Fachada e detalhes arquitetônicos da Vila dos Portões"
               className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg"
             />
             <img
-              src="https://placehold.co/600x800/D8CBB0/1E3A2B?text=Foto+da+Vila+2"
-              alt="Paisagem da Vila dos Portões"
+              src="/vila2.png"
+              alt="Paisagem e estrutura da Vila dos Portões"
               className="aspect-[4/5] w-full rounded-2xl object-cover shadow-lg sm:mt-8"
             />
+          </div>
           </div>
         </div>
       </section>
@@ -403,10 +395,10 @@ export default function Page() {
         <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
           <SectionTitle>Edições passadas</SectionTitle>
           <p className="mt-4 max-w-2xl text-lg leading-relaxed text-forest/85">
-            Veja como foram os encontros anteriores na Vila dos Portões.
+            Veja como foram as outras edições do CAMP
           </p>
           <div className="mt-10">
-            <Gallery images={PAST_EDITIONS_IMAGES} />
+            <Gallery />
           </div>
         </div>
       </section>
@@ -427,8 +419,8 @@ export default function Page() {
           Vem cultivar com a gente
         </h2>
         <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed">
-          15 a 18 de outubro de 2026, na Vila dos Portões, Araçariguama - SP.
-          Hospedagem e alimentação inclusas.
+          15 a 18 de outubro de 2026,{" "}
+          <span className="whitespace-nowrap">na Vila dos Portões, Araçariguama - SP.</span>
         </p>
         <a
           href={INSCRICAO_URL}
