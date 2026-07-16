@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  ::selection {
+    background-color: #bc5f3f;
+    color: #f4edde;
+  }
+}
+
+@layer utilities {
+  .texture-paper {
+    background-image: radial-gradient(
+        ellipse at 20% 10%,
+        rgba(216, 203, 176, 0.25) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse at 80% 90%,
+        rgba(216, 203, 176, 0.2) 0%,
+        transparent 50%
+      );
+  }
+
+  .blob-mask {
+    border-radius: 48% 52% 45% 55% / 60% 58% 42% 40%;
+    overflow: hidden;
+  }
+}
