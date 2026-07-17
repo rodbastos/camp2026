@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { createCheckout, createCustomer, getOrCreateProduct } from "@/lib/abacatepay";
+import { createCheckout } from "@/lib/payments";
 import { PRICING, type Accommodation } from "@/lib/pricing";
 
 export const runtime = "nodejs";
@@ -135,31 +135,30 @@ export async function POST(request: NextRequest) {
     quantities[extra.hospedagem] += 1;
   }
 
-  try {
-    const items: { id: string; quantity: number }[] = [];
-    for (const key of Object.keys(quantities) as Accommodation[]) {
-      if (quantities[key] === 0) continue;
+  const orderId = `camp2026-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const paymentItems = (Object.keys(quantities) as Accommodation[])
+    .filter((key) => quantities[key] > 0)
+    .map((key) => {
       const pricing = PRICING[key];
-      const product = await getOrCreateProduct({
+      return {
         externalId: pricing.externalId,
         name: `CAMP 2026 — ${pricing.label}`,
         description: pricing.description,
         price: pricing.price,
-      });
-      items.push({ id: product.id, quantity: quantities[key] });
-    }
-
-    const customer = await createCustomer({
-      name: body.nome.trim(),
-      email: body.email.trim(),
-      cellphone: body.telefone.trim(),
-      taxId: body.cpf.replace(/\D/g, ""),
+        quantity: quantities[key],
+      };
     });
 
+  try {
     const checkout = await createCheckout({
-      items,
-      customerId: customer.id,
-      externalId: `camp2026-${Date.now()}-${customer.id}`,
+      items: paymentItems,
+      customer: {
+        name: body.nome.trim(),
+        email: body.email.trim(),
+        cellphone: body.telefone.trim(),
+        taxId: body.cpf.replace(/\D/g, ""),
+      },
+      externalId: orderId,
       returnUrl: `${origin}/inscricao`,
       completionUrl: `${origin}/inscricao/sucesso`,
       metadata: {
