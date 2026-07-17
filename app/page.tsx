@@ -18,7 +18,7 @@ import Image from "next/image";
 import Faq from "@/components/Faq";
 import Gallery from "@/components/Gallery";
 
-const INSCRICAO_URL = "https://forms.gle/Gq7Hmm1qiVkSoU2p6";
+const INSCRICAO_URL = "/inscricao";
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return (
@@ -56,8 +56,6 @@ export default function Page() {
           </div>
           <a
             href={INSCRICAO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
             className="rounded-lg bg-terracotta px-4 py-2 text-sm font-semibold text-cream hover:bg-terracotta-dark transition-colors"
           >
             Inscreva-se
@@ -92,8 +90,6 @@ export default function Page() {
             <div className="mt-10 flex flex-col items-start gap-4">
               <a
                 href={INSCRICAO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="rounded-xl bg-terracotta px-8 py-4 text-lg font-semibold text-cream shadow-lg shadow-terracotta/25 hover:bg-terracotta-dark transition-colors"
               >
                 Quero participar
@@ -179,9 +175,9 @@ export default function Page() {
               <div>
                 <h3 className="font-semibold">Investimento</h3>
                 <p className="mt-1 text-cream/80 text-sm leading-relaxed">
-                  R$ 1.100 por pessoa, em alojamento
+                  R$ 1.150 por pessoa, em alojamento
                   <br />
-                  R$ 800 por pessoa, em camping
+                  R$ 600 por pessoa, em camping
                 </p>
               </div>
             </div>
@@ -193,8 +189,6 @@ export default function Page() {
             </p>
             <a
               href={INSCRICAO_URL}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-terracotta px-6 py-3 font-semibold text-cream hover:bg-terracotta-dark transition-colors"
             >
               <Link2 className="h-4 w-4" />
@@ -436,8 +430,6 @@ export default function Page() {
         </p>
         <a
           href={INSCRICAO_URL}
-          target="_blank"
-          rel="noopener noreferrer"
           className="mt-8 inline-block rounded-xl bg-terracotta px-10 py-4 text-lg font-semibold text-cream shadow-lg shadow-terracotta/25 hover:bg-terracotta-dark transition-colors"
         >
           Quero participar

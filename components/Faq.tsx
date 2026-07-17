@@ -50,7 +50,7 @@ const FAQ_ITEMS: { question: string; answer: string }[] = [
   {
     question: "Com quem eu posso tirar outras dúvidas sobre o Camp?",
     answer:
-      "Manda uma mensagem no Whatsapp para ?? no ",
+      "Manda uma mensagem no WhatsApp para Camila: +55 11 96198-9567. Se preferir, use o link https://wa.me/5511961989567.",
   },
 ];
 
