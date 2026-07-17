@@ -440,6 +440,7 @@ export default function Page() {
       <footer className="border-t border-sand/60">
         <div className="mx-auto max-w-6xl px-6 py-8 flex flex-col items-center gap-2 text-sm text-forest/70 md:flex-row md:justify-between">
           <span className="font-serif font-bold text-forest">CAMP 2026</span>
+          <span className="font-semibold text-terracotta">Vagas Limitadas</span>
           <span>
             Organizado pela comunidade, para a comunidade. Sem fins lucrativos.
           </span>
