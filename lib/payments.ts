@@ -51,10 +51,30 @@ export async function createCheckout(
   const provider = currentProvider();
 
   if (provider === "abacatepay") {
+    const grouped = params.items.reduce<
+      Record<
+        string,
+        { name: string; description: string; price: number; quantity: number }
+      >
+    >((acc, item) => {
+      const existing = acc[item.externalId];
+      if (existing) {
+        existing.quantity += item.quantity;
+      } else {
+        acc[item.externalId] = {
+          name: item.name,
+          description: item.description,
+          price: item.price,
+          quantity: item.quantity,
+        };
+      }
+      return acc;
+    }, {});
+
     const products = await Promise.all(
-      params.items.map(async (item) => {
+      Object.entries(grouped).map(async ([externalId, item]) => {
         const product = await getOrCreateProduct({
-          externalId: item.externalId,
+          externalId,
           name: item.name,
           description: item.description,
           price: item.price,

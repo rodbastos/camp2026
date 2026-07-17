@@ -110,16 +110,45 @@ export async function createPreference(params: {
   const phone = parsePhone(params.payer.cellphone);
   const autoReturn = params.backUrls.success.startsWith("https://");
 
+  const total = params.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const totalQuantity = params.items.reduce((sum, item) => sum + item.quantity, 0);
+
+  const mpItems =
+    totalQuantity <= 1
+      ? params.items.map((item) => ({
+          title: item.name,
+          description: item.description,
+          quantity: item.quantity,
+          currency_id: "BRL",
+          unit_price: item.price / 100,
+        }))
+      : [
+          (() => {
+            const counts = params.items.reduce<Record<string, number>>(
+              (acc, item) => {
+                const label = item.name.split(" — ")[1] ?? item.name;
+                acc[label] = (acc[label] ?? 0) + item.quantity;
+                return acc;
+              },
+              {}
+            );
+            const summary = Object.entries(counts)
+              .map(([label, qty]) => `${qty}x ${label}`)
+              .join(", ");
+            return {
+              title: `CAMP 2026 — ${totalQuantity} ingressos (${summary})`,
+              description: `Inscrições CAMP 2026 — ${summary}`,
+              quantity: 1,
+              currency_id: "BRL",
+              unit_price: total / 100,
+            };
+          })(),
+        ];
+
   const preference = await mpFetch<MercadoPagoPreference>("/checkout/preferences", {
     method: "POST",
     body: JSON.stringify({
-      items: params.items.map((item) => ({
-        title: item.name,
-        description: item.description,
-        quantity: item.quantity,
-        currency_id: "BRL",
-        unit_price: item.price / 100,
-      })),
+      items: mpItems,
       payer: {
         name,
         surname,
@@ -134,7 +163,15 @@ export async function createPreference(params: {
       ...(autoReturn ? { auto_return: "approved" } : {}),
       payment_methods: {
         excluded_payment_methods: [],
-        excluded_payment_types: [],
+        excluded_payment_types: [
+          { id: "debit_card" },
+          { id: "ticket" },
+          { id: "atm" },
+          { id: "digital_currency" },
+          { id: "digital_wallet" },
+          { id: "prepaid_card" },
+          { id: "voucher" },
+        ],
         installments: 12,
       },
       external_reference: params.externalReference,

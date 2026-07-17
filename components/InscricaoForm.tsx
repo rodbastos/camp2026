@@ -314,7 +314,10 @@ export default function InscricaoForm() {
                   type="radio"
                   name="hospedagem"
                   checked={selected}
-                  onChange={() => setHospedagem(key)}
+                  onChange={() => {
+                    setHospedagem(key);
+                    if (key === "camping") setTipoQuarto("");
+                  }}
                   className="sr-only"
                 />
                 <span className="font-semibold">{option.label}</span>
@@ -327,23 +330,25 @@ export default function InscricaoForm() {
         </div>
       </Field>
 
-      <Field label="Você prefere que sua hospedagem seja em:">
-        <div className="space-y-2">
-          {["quarto misto", "quarto feminino"].map((option) => (
-            <label key={option} className="flex items-center gap-3 cursor-pointer">
-              <input
-                type="radio"
-                name="tipoQuarto"
-                checked={tipoQuarto === option}
-                onChange={() => setTipoQuarto(option)}
-                required
-                className="h-4 w-4 accent-terracotta"
-              />
-              <span>{option}</span>
-            </label>
-          ))}
-        </div>
-      </Field>
+      {hospedagem === "alojamento" && (
+        <Field label="Você prefere que sua hospedagem seja em:">
+          <div className="space-y-2">
+            {["quarto misto", "quarto feminino"].map((option) => (
+              <label key={option} className="flex items-center gap-3 cursor-pointer">
+                <input
+                  type="radio"
+                  name="tipoQuarto"
+                  checked={tipoQuarto === option}
+                  onChange={() => setTipoQuarto(option)}
+                  required
+                  className="h-4 w-4 accent-terracotta"
+                />
+                <span>{option}</span>
+              </label>
+            ))}
+          </div>
+        </Field>
+      )}
 
       <Field label="Você possui alguma necessidade de acessibilidade ou cuidado especial que devemos saber?">
         <textarea

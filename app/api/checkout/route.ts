@@ -57,7 +57,6 @@ function validate(body: InscricaoPayload): string | null {
     ["cidade", "Cidade de origem"],
     ["experienciaAutogestao", "Experiência com autogestão"],
     ["hospedagem", "Hospedagem"],
-    ["tipoQuarto", "Tipo de quarto"],
     ["acessibilidade", "Acessibilidade"],
     ["carona", "Carona"],
     ["acompanhantes", "Acompanhantes"],
@@ -68,6 +67,10 @@ function validate(body: InscricaoPayload): string | null {
     if (typeof value !== "string" || value.trim() === "") {
       return `Campo obrigatório: ${label}`;
     }
+  }
+
+  if (body.hospedagem === "alojamento" && body.tipoQuarto.trim() === "") {
+    return "Campo obrigatório: Tipo de quarto";
   }
 
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(body.email.trim())) {
@@ -128,26 +131,24 @@ export async function POST(request: NextRequest) {
   const origin = request.nextUrl.origin;
   const extras = body.participantesAdicionais ?? [];
 
-  // Quantidade de ingressos por tipo de hospedagem (titular + adicionais)
-  const quantities: Record<Accommodation, number> = { alojamento: 0, camping: 0 };
-  quantities[body.hospedagem] += 1;
-  for (const extra of extras) {
-    quantities[extra.hospedagem] += 1;
-  }
-
   const orderId = `camp2026-${Date.now()}-${Math.random().toString(36).slice(2)}`;
-  const paymentItems = (Object.keys(quantities) as Accommodation[])
-    .filter((key) => quantities[key] > 0)
-    .map((key) => {
-      const pricing = PRICING[key];
-      return {
-        externalId: pricing.externalId,
-        name: `CAMP 2026 — ${pricing.label}`,
-        description: pricing.description,
-        price: pricing.price,
-        quantity: quantities[key],
-      };
-    });
+
+  // Um item de pagamento por participante para que o checkout mostre cada ingresso
+  const participants = [
+    { nome: body.nome, hospedagem: body.hospedagem },
+    ...extras.map((extra) => ({ nome: extra.nome, hospedagem: extra.hospedagem })),
+  ];
+  const paymentItems = participants.map((participant) => {
+    const pricing = PRICING[participant.hospedagem];
+    const nome = participant.nome.trim();
+    return {
+      externalId: pricing.externalId,
+      name: `CAMP 2026 — ${pricing.label} — ${nome}`,
+      description: pricing.description,
+      price: pricing.price,
+      quantity: 1,
+    };
+  });
 
   try {
     const checkout = await createCheckout({
