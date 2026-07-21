@@ -20,23 +20,23 @@ export const metadata: Metadata = {
   description:
     "Uma desconferência para quem cultiva sistemas sociais mais vivos. 15 a 18 de outubro de 2026, Vila dos Portões, Araçariguama - SP.",
   openGraph: {
-    title: "CAMP 2026",
+    title: "CAMP 2026 — Uma desconferência sobre autogestão",
     description:
-      "Uma desconferência para quem cultiva sistemas sociais mais vivos. 15 a 18 de outubro, Araçariguama - SP.",
+      "Uma desconferência para quem cultiva sistemas sociais mais vivos. 15 a 18 de outubro de 2026, Vila dos Portões, Araçariguama - SP.",
     locale: "pt_BR",
     type: "website",
     images: [
       {
-        url: "/camp2026-abacate.jpg",
-        width: 1024,
-        height: 588,
+        url: "/camp2026-og.jpg",
+        width: 1200,
+        height: 630,
         alt: "CAMP 2026 — Uma desconferência sobre autogestão",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    images: ["/camp2026-abacate.jpg"],
+    images: ["/camp2026-og.jpg"],
   },
 };
 
