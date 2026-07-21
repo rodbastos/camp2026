@@ -15,6 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://camp.targetteal.com"),
   title: "CAMP 2026 — Uma desconferência sobre autogestão",
   description:
     "Uma desconferência para quem cultiva sistemas sociais mais vivos. 15 a 18 de outubro de 2026, Vila dos Portões, Araçariguama - SP.",
@@ -24,6 +25,18 @@ export const metadata: Metadata = {
       "Uma desconferência para quem cultiva sistemas sociais mais vivos. 15 a 18 de outubro, Araçariguama - SP.",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/camp2026-abacate.jpg",
+        width: 1024,
+        height: 588,
+        alt: "CAMP 2026 — Uma desconferência sobre autogestão",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/camp2026-abacate.jpg"],
   },
 };
 
