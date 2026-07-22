@@ -23,6 +23,7 @@ export const metadata: Metadata = {
     title: "CAMP 2026 — Uma desconferência sobre autogestão",
     description:
       "Uma desconferência para quem cultiva sistemas sociais mais vivos. 15 a 18 de outubro de 2026, Vila dos Portões, Araçariguama - SP.",
+    url: "/",
     locale: "pt_BR",
     type: "website",
     images: [
